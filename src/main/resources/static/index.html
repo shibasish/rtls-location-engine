@@ -1,0 +1,129 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>WebSocket Example</title>
+  <style>
+    /* CSS styles for the chat box */
+    #chat-box {
+      width: 400px;
+      height: 300px;
+      overflow-y: scroll;
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+  </style>
+  <script src="app.js"></script>
+</head>
+<body>
+  <h1>WebSocket Example</h1>
+
+  <div id="chat-box"></div>
+
+  <input type="text" id="message-input" placeholder="Enter your message">
+  <button id="send-button">Send</button>
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>WebSocket Example</title>
+</head>
+<body>
+  <h1>WebSocket Example</h1>
+  
+  <div id="messages"></div>
+
+  <script>
+    // Create a WebSocket connection
+    var socket = new WebSocket("ws://localhost:9133/chat");
+
+    // Connection opened event
+    socket.onopen = function(event) {
+      appendMessage("WebSocket connection opened");
+      
+      // Send a message to the server
+      socket.send("Hello, WebSocket server!");
+    };
+
+    // Message received event
+    socket.onmessage = function(event) {
+      appendMessage("Received message: " + event.data);
+    };
+
+    // Connection closed event
+    socket.onclose = function(event) {
+      appendMessage("WebSocket connection closed");
+    };
+
+    // Error event
+    socket.onerror = function(event) {
+      appendMessage("WebSocket error: " + event);
+    };
+
+    // Function to append messages to the HTML
+    function appendMessage(message) {
+      var messagesElement = document.getElementById("messages");
+      var p = document.createElement("p");
+      p.innerText = message;
+      messagesElement.appendChild(p);
+    }
+  </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello WebSocket</title>
+    <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="/main.css" rel="stylesheet"> -->
+    <script src="jquery.min.js"></script>
+    <script src="sockjs.min.js"></script>
+    <script src="stomp.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body>
+<noscript><h2 style="color: #ff0000">Seems your browser doesn't support Javascript! Websocket relies on Javascript being
+    enabled. Please enable
+    Javascript and reload this page!</h2></noscript>
+<div id="main-content" class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form class="form-inline">
+                <div class="form-group">
+                    <label for="connect">WebSocket connection:</label>
+                    <button id="connect" class="btn btn-default" type="submit">Connect</button>
+                    <button id="disconnect" class="btn btn-default" type="submit" disabled="disabled">Disconnect
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <form class="form-inline">
+                <div class="form-group">
+                    <label for="name">What is your name?</label>
+                    <input type="text" id="name" class="form-control" placeholder="Your name here...">
+                </div>
+                <button id="send" class="btn btn-default" type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table id="conversation" class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Greetings</th>
+                </tr>
+                </thead>
+                <tbody id="greetings">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
