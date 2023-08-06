@@ -1,7 +1,2 @@
-spring:
-  mqtt:
-    url: tcp://localhost:1883
-
-
 server:
   port: 9133
