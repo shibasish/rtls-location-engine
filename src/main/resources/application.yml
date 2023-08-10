@@ -1,2 +1,9 @@
+mqtt:
+  broker:
+    url: tcp://localhost:1883
+  client:
+    id: location-engine-inbound
+  topic: my-topic
+
 server:
   port: 9133
