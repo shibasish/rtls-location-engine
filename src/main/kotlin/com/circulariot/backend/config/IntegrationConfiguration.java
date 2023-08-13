@@ -1,6 +1,5 @@
 package com.circulariot.backend.config;
 
-import com.circulariot.backend.domain.sensor.SensorData;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -62,6 +61,6 @@ public class IntegrationConfiguration {
     @Bean
     @Transformer(inputChannel="mqttInputChannel", outputChannel="messageTransformedOutputChannel")
     JsonToObjectTransformer jsonToObjectTransformer() {
-        return new JsonToObjectTransformer(SensorData.class);
+        return new JsonToObjectTransformer(String.class);
     }
 }

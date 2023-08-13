@@ -1,6 +1,5 @@
 package com.circulariot.backend.service;
 
-import com.circulariot.backend.domain.sensor.SensorData;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -11,11 +10,12 @@ public class LocationService {
     private final ServerSentEventService serverSentEventService;
 
 
-    public void predictLocation(SensorData sensorDataList) {
+    public void predictLocation(String sensorDataList) {
         //predict location
         //implement tsdb repository here
         //send to websocket
-        serverSentEventService.sendEvent(SensorData.builder().name(sensorDataList.name()).build().toString());
+//        serverSentEventService.sendEvent(SensorData.builder().name(sensorDataList.name()).build().toString());
+        serverSentEventService.sendEvent(sensorDataList);
     }
 
 }
